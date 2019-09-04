@@ -1,6 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 0px;
   font-family: Lato,sans-serif;
 }
@@ -22,7 +23,6 @@ span {
   justify-content: center;
   background-color: #eeeeee59;
   height: 40px;
-  width: 100%;
   font-size: 14px;
 }
 
@@ -39,6 +39,32 @@ span {
 }
 
 .detail-value {
+  font-weight: 300;
+}
+
+#main {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+} 
+
+#main-icon {
+  width: 200px;
+}
+
+#main-detail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#current-detail {
+  font-size: 32px;
+  white-space: nowrap;
+  margin: 10px 0px;
+}
+
+.temp-value {
   font-weight: 300;
 }
 
