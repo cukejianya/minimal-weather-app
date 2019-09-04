@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0px;
+  font-family: Lato,sans-serif;
 }
 
 header {
@@ -10,11 +11,34 @@ header {
   height: 45px;
 }
 
-#detail-bar {
-  height: 40px; 
-  width: 100%;
-  opacity: 0.35;
-  background-color: #eee;
+span {
+  color: #111;
 }
 
+#detail-bar {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  justify-content: center;
+  background-color: #eeeeee59;
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.detail-cell {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  height: 100%;
+}
+
+.detail-subject {
+  margin: 0 4px;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-weight: 300;
+}
 

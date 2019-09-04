@@ -3,14 +3,41 @@
   <head>
     <title>Minimal Weather App</title>
     <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css"/>
     <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
     <header></header>
-    <div id='detail-bar'></div>
-    <main></main>
-    <map></map>
+    <div id='detail-bar'>
+      <div id='wind' class='detail-cell'>
+        <span class='detail-subject'>Wind:</span>
+        <span class='detail-value'>2 mph</span>
+      </div>
+      <div id='humidity' class='detail-cell'>
+        <span class='detail-subject'>Humidity:</span>
+        <span class='detail-value'>68%</span>
+      </div>
+      <div id='dew-pt' class='detail-cell'>
+        <span class='detail-subject'>Dew Pt:</span>
+        <span class='detail-value'>70º</span>
+      </div>
+      <div id='uv-index' class='detail-cell'>
+        <span class='detail-subject'>UV Index:</span>
+        <span class='detail-value'>5</span>
+      </div>
+      <div id='visibility' class='detail-cell'>
+        <span class='detail-subject'>Visibility</span>
+        <span class='detail-value'>10+ mi</span>
+      </div>
+      <div id='pressure' class='detail-cell'>
+        <span class='detail-subject'>Pressure:</span>
+        <span class='detail-value'>1014 mb</span>
+      </div>
+    </div>
+    <div id='main'></div>
+    <div id='timeline'></div>
+    <div id='map'></div>
     <footer></footer>
   </body>
 </html>
