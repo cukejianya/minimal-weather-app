@@ -1,4 +1,5 @@
 body {
+  min-width:500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +19,7 @@ header {
   justify-content: center;
   margin: 0px auto;
   padding: 10px 30px;
-  width: 70%;
+  width: 50%;
 }
 
 #search-input {
@@ -63,12 +64,14 @@ span {
 
 #detail-bar {
   display: flex;
+  overflow: auto;
   flex-direction: row;
   white-space: nowrap;
   justify-content: center;
   background-color: #eeeeee59;
   height: 40px;
   font-size: 14px;
+  animation: slidein 3s linear 1s infinite alternate;
 }
 
 .detail-cell {
@@ -113,4 +116,3 @@ span {
   font-weight: 300;
   margin: 0px 5px 0px 0px; 
 }
-
