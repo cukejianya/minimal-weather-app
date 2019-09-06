@@ -46,18 +46,33 @@ function listRender(input, autoCompleteElm, place) {
   let addressHTML = `<span class="address">${address}</span>`;
   elm.id = 'autosuggest';
   elm.innerHTML = `${searchResult} ${addressHTML}`;
-  elm.addEventListener('click', selectLocation.bind(null, place));
+  elm.addEventListener(
+    'click', 
+    selectLocation.bind(null, place, autoCompleteElm)
+  );
   autoCompleteElm.appendChild(elm);
 }
 
-async function selectLocation(place) {
-    let weatherObj = await fetchWeather(...place.position);
-    console.log(weatherObj);
+async function selectLocation(place, autoCompleteElm, e) {
+  setSearchBarText(e);
+  removeAllChildren(autoCompleteElm);
+  autoCompleteElm.style['border-width'] = '0px';
+  let weatherObj = await fetchWeather(...place.position);
+  console.log(weatherObj);
+}
+
+function setSearchBarText(e) {
+  let searchInput = document.getElementById('search-input');
+  console.log(e);
+  searchInput.value = e.target.innerText;
 }
 
 function fetchWeather(lat, lng) {
   let url = `http://127.0.0.1:3000?lat=${lat}&lng=${lng}`;
   return fetch(url, {mode: 'cors'}).then(response => response.json());
+}
+
+function handleWeather() {
 }
 
 function removeAllChildren(parent) {

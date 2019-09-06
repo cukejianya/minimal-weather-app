@@ -8,7 +8,7 @@ const Koa = require('koa');
 const client = new Koa();
 const proxyServer = new Koa();
 
-client.use(static(path.join(__dirname,'../public')));
+client.use(static(path.join(__dirname,'../client')));
 
 proxyServer.use(async (ctx, next) => {
   console.log('hey');
