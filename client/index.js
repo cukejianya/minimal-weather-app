@@ -74,6 +74,7 @@ function fetchWeather(lat, lng) {
 
 function handleWeather(weatherObj) {
   changeDetailBar(weatherObj.currently);
+  changeIcon(weatherObj.currently.icon)
 }
 
 function changeDetailBar(currentWeather) {
@@ -88,6 +89,29 @@ function changeDetailBar(currentWeather) {
       child.innerText = child.innerText.replace(/\d+/g, value.toFixed(0));
     }
   }
+}
+
+function changeIcon(icon) {
+  let iconBar = document.getElementById('main-icon');
+  let iconImg = getIconImg(icon);
+  iconBar.src = `icons/animated/${iconImg}`;
+}
+
+function getIconImg(icon) {
+  const iconMapping = {
+    rain: 'rainy-6.svg',
+    snow: 'snowy-6.svg',
+    sleet: 'rainy-7.svg',
+    wind: 'cloudy.svg',
+    fog: 'cloud.svg',
+    cloudy: 'cloudy.svg',
+    'clear-day': 'day.svg',
+    'clear-night': 'night.svg',
+    'partly-cloudy-day': 'cloudy-day-1.svg',
+    'partly-cloudy-night': 'cloudy-night-1.svg'
+  }
+
+  return iconMapping[icon]; 
 }
 
 function removeAllChildren(parent) {
