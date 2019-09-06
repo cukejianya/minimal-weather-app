@@ -54,12 +54,22 @@ function listRender(input, autoCompleteElm, place) {
 }
 
 async function selectLocation(place, autoCompleteElm, e) {
+  showElements();
   setSearchBarText(e);
   removeAllChildren(autoCompleteElm);
   autoCompleteElm.style['border-width'] = '0px';
   let weatherObj = await fetchWeather(...place.position);
   changeMap(...place.position);
   handleWeather(weatherObj);
+}
+
+function showElements() {
+  let elements = document.querySelector('body').children;
+  for (var elm of elements) {
+    if (elm.localName !== 'header') {
+      elm.style.visibility = 'visible';
+    }
+  }
 }
 
 function setSearchBarText(e) {
@@ -70,6 +80,12 @@ function setSearchBarText(e) {
 function fetchWeather(lat, lng) {
   let url = `http://127.0.0.1:3000?lat=${lat}&lng=${lng}`;
   return fetch(url, {mode: 'cors'}).then(response => response.json());
+}
+
+function changeMap(lat, lng) {
+  let iframe = document.querySelector('iframe'); 
+  let newURL = `https://maps.darksky.net/@temperature,${lat},${lng},11`;  
+  iframe.src = newURL;
 }
 
 function handleWeather(weatherObj) {
@@ -140,10 +156,4 @@ function removeAllChildren(parent) {
     parent.firstChild.remove();
   }
   return true;
-}
-
-function changeMap(lat, lng) {
-  let iframe = document.querySelector('iframe'); 
-  let newURL = `https://maps.darksky.net/@temperature,${lat},${lng},11`;  
-  iframe.src = newURL;
 }
