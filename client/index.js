@@ -58,7 +58,7 @@ async function selectLocation(place, autoCompleteElm, e) {
   removeAllChildren(autoCompleteElm);
   autoCompleteElm.style['border-width'] = '0px';
   let weatherObj = await fetchWeather(...place.position);
-  console.log(weatherObj);
+  handleWeather(weatherObj);
 }
 
 function setSearchBarText(e) {
@@ -72,7 +72,22 @@ function fetchWeather(lat, lng) {
   return fetch(url, {mode: 'cors'}).then(response => response.json());
 }
 
-function handleWeather() {
+function handleWeather(weatherObj) {
+  changeDetailBar(weatherObj.currently);
+}
+
+function changeDetailBar(currentWeather) {
+  let detailBar = document.getElementById('detail-bar');
+  for (var elm of detailBar.children) {
+    if (elm.id in currentWeather) {
+      let child = elm.lastElementChild;
+      let value = currentWeather[elm.id]; 
+      if (elm.id == 'humidity') {
+        value = (value * 100);
+      }
+      child.innerText = child.innerText.replace(/\d+/g, value.toFixed(0));
+    }
+  }
 }
 
 function removeAllChildren(parent) {
