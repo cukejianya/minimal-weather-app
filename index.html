@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css"/>
-    <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
     <header>
@@ -15,6 +14,7 @@
           <img id='search-icon' src="icons/search.svg" alt="search"/>
         </button>
       </div>
+      <div id='autocomplete'></div>
     </header>
     <div id='detail-bar'>
       <div id='wind' class='detail-cell'>
@@ -56,10 +56,13 @@
         </div>
       </div>
     </div>
-    <div id='timeline'></div>
+    <canvas id="myChart" width="400" height="400"></canvas>
     <script 
       src='https://darksky.net/map-embed/@temperature,40.736,-73.986,9.js?embed=true&timeControl=true&fieldControl=true&defaultField=temperature&defaultUnits=_f'>
     </script>
     <footer></footer>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ_-kmPXekKQwImQJQB7IzbFi2jfhaJVo&libraries=places"></script>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
