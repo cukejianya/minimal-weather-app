@@ -64,7 +64,6 @@ async function selectLocation(place, autoCompleteElm, e) {
 
 function setSearchBarText(e) {
   let searchInput = document.getElementById('search-input');
-  console.log(e);
   searchInput.value = e.target.innerText;
 }
 

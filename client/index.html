@@ -8,13 +8,19 @@
   </head>
   <body>
     <header>
-      <div id='search-bar'>
-        <input id='search-input' type='text'/>
-        <button id='search-button'>
-          <img id='search-icon' src="icons/search.svg" alt="search"/>
-        </button>
+      <div id='logo-bar'>
+        <img id=logo src='icons/logo.png' alt='logo icon'/>
+        <span id='title'>Minimal Weather App</span>
       </div>
-      <div id='autocomplete'></div>
+      <div id='search-bar'>
+        <div id='search-container'> 
+          <input id='search-input' type='text'/>
+          <button id='search-button'>
+            <img id='search-icon' src="icons/search.svg" alt="search"/>
+          </button>
+        </div>
+        <div id='autocomplete'></div>
+      </div>
     </header>
     <div id='detail-bar'>
       <div id='windSpeed' class='detail-cell'>
