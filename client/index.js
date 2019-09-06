@@ -73,8 +73,10 @@ function fetchWeather(lat, lng) {
 }
 
 function handleWeather(weatherObj) {
-  changeDetailBar(weatherObj.currently);
-  changeIcon(weatherObj.currently.icon)
+  let { currently } = weatherObj;
+  changeDetailBar(currently);
+  changeIcon(currently.icon)
+  changeSummary(currently.summary, currently.temperature);
 }
 
 function changeDetailBar(currentWeather) {
@@ -112,6 +114,11 @@ function getIconImg(icon) {
   }
 
   return iconMapping[icon]; 
+}
+
+function changeSummary(summary, temperature) {
+  let summerElm = document.getElementById('summary');
+  summerElm.innerText = `${temperature.toFixed(0)}º ${summary}`;
 }
 
 function removeAllChildren(parent) {
