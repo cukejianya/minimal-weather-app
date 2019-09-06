@@ -58,6 +58,7 @@ async function selectLocation(place, autoCompleteElm, e) {
   removeAllChildren(autoCompleteElm);
   autoCompleteElm.style['border-width'] = '0px';
   let weatherObj = await fetchWeather(...place.position);
+  changeMap(...place.position);
   handleWeather(weatherObj);
 }
 
@@ -140,4 +141,10 @@ function removeAllChildren(parent) {
     parent.firstChild.remove();
   }
   return true;
+}
+
+function changeMap(lat, lng) {
+  let iframe = document.querySelector('iframe'); 
+  let newURL = `https://maps.darksky.net/@temperature,${lat},${lng},11`;  
+  iframe.src = newURL;
 }
