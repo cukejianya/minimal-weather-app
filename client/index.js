@@ -73,10 +73,15 @@ function fetchWeather(lat, lng) {
 }
 
 function handleWeather(weatherObj) {
-  let { currently } = weatherObj;
+  let { currently, daily } = weatherObj;
   changeDetailBar(currently);
   changeIcon(currently.icon)
   changeSummary(currently.summary, currently.temperature);
+  changeTemperature(
+    currently.apparentTemperature,
+    daily.data[0].temperatureLow,
+    daily.data[0].temperatureHigh
+  );
 }
 
 function changeDetailBar(currentWeather) {
@@ -119,6 +124,15 @@ function getIconImg(icon) {
 function changeSummary(summary, temperature) {
   let summerElm = document.getElementById('summary');
   summerElm.innerText = `${temperature.toFixed(0)}º ${summary}`;
+}
+
+function changeTemperature(feelLike, low, high) {
+  let feelLikeElm = document.getElementById('feels-like');
+  let lowElm = document.getElementById('low');
+  let highElm = document.getElementById('high');
+  feelLikeElm.innerText = feelLike.toFixed(0) + 'º';
+  lowElm.innerText = low.toFixed(0) + 'º';
+  highElm.innerText = high.toFixed(0) + 'º';
 }
 
 function removeAllChildren(parent) {
