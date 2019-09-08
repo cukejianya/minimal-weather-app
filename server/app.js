@@ -1,14 +1,9 @@
 const fetch = require('node-fetch');
-const static = require('koa-static');
 const cors = require('@koa/cors');
 const path = require('path');
 const Koa = require('koa');
 
-
-const client = new Koa();
 const proxyServer = new Koa();
-
-client.use(static(path.join(__dirname,'../client')));
 
 proxyServer.use(async (ctx, next) => {
   console.log('hey');
@@ -30,4 +25,3 @@ function fetchWeather(lat, lng) {
 }
 
 proxyServer.listen(3000)
-client.listen(8080);

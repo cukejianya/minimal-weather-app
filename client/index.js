@@ -78,7 +78,7 @@ function setSearchBarText(e) {
 }
 
 function fetchWeather(lat, lng) {
-  let url = `http://127.0.0.1:3000?lat=${lat}&lng=${lng}`;
+  let url = `http://api.weather.cukejianya.com?lat=${lat}&lng=${lng}`;
   return fetch(url, {mode: 'cors'}).then(response => response.json());
 }
 
