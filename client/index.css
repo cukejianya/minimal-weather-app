@@ -1,5 +1,4 @@
-body {
-  min-width:500px;
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +10,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
+  flex: 2;
 }
 
 #logo-bar {
@@ -115,7 +115,8 @@ header {
   white-space: nowrap;
   justify-content: center;
   background-color: #eeeeee59;
-  height: 40px;
+  height: 100%;
+  flex-grow: 1;
   font-size: 14px;
 }
 
@@ -140,6 +141,7 @@ header {
   margin: 0 auto;
   display: flex;
   align-items: center;
+  height: 100%;
 } 
 
 #main-icon {
@@ -165,4 +167,9 @@ header {
 
 iframe {
   visibility: hidden;
+  flex: 5;
+}
+
+html,body {
+  height: 100%;
 }

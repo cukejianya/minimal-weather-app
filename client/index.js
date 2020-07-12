@@ -64,7 +64,7 @@ async function selectLocation(place, autoCompleteElm, e) {
 }
 
 function showElements() {
-  let elements = document.querySelector('body').children;
+  let elements = document.querySelector('.wrapper').children;
   for (var elm of elements) {
     if (elm.localName !== 'header') {
       elm.style.visibility = 'visible';
